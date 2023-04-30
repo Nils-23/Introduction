@@ -1,0 +1,29 @@
+The entity relationship diagram for the drug dispensing system would include the following entities:
+
+Patient (int SSN, string name, string address, int age);
+
+Doctor (int SSN, string name, string specialty, int years of experience);
+
+Pharmaceutical Company (string name,int phone number);
+
+Drug (string trade name, string formula, string pharmaceutical company);
+
+Pharmacy (string name,string address,int phone number);
+
+Prescription (date date, string quantity,string patient, string doctor, string drug);
+
+Contract (date start date,date end date,string text,string  pharmaceutical company,string pharmacy);
+
+Supervisor (string pharmacy,string contract);
+
+The relationships between these entities would be modeled as follows:
+
+Patient --(1:N)-- Prescription --(N:1)-- Doctor
+Pharmacy --(1:N)-- Prescription --(N:1)-- Drug
+Pharmaceutical Company --(1:N)-- Drug
+Pharmaceutical Company --(1:N)-- Contract --(N:1)-- Pharmacy
+Supervisor --(N:1)-- Contract --(1:N)-- Pharmacy
+Patient --(N:1)-- Doctor
+This diagram shows that each patient can have multiple prescriptions, and each prescription is associated with a doctor, a drug, and a pharmacy. Each pharmacy can have multiple contracts with different pharmaceutical companies, and each contract is associated with a supervisor. Each drug is produced by a pharmaceutical company, and each pharmaceutical company can produce multiple drugs. Finally, each patient has a primary doctor, and each doctor can have multiple patients.
+
+
